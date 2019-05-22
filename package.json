@@ -1,0 +1,36 @@
+{
+    "name": "rt3-think-tank",
+    "version": "1.0.0",
+    "description": "RT3 Think Tank theme.",
+    "main": "Gulpfile.js",
+    "dependencies": {
+        "babel-core": "^6.26.3",
+        "babel-preset-env": "^1.7.0",
+        "browser-sync": "^2.24.4",
+        "del": "^3.0.0",
+        "gulp": "^3.9.1",
+        "gulp-babel": "^7.0.1",
+        "gulp-concat": "^2.6.1",
+        "gulp-cssnano": "^2.1.3",
+        "gulp-notify": "^3.2.0",
+        "gulp-plumber": "^1.2.0",
+        "gulp-postcss": "^7.0.1",
+        "gulp-rename": "^1.2.3",
+        "gulp-replace": "^1.0.0",
+        "gulp-sass": "^3.2.1",
+        "gulp-sort": "^2.0.0",
+        "gulp-sourcemaps": "^2.6.4",
+        "gulp-uglify": "^3.0.0",
+        "gulp-util": "^3.0.8",
+        "gulp-wp-pot": "^2.3.1"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "test": "echo \"No test specified\""
+    },
+    "keywords": [
+        "theme"
+    ],
+    "author": "Harness Software",
+    "license": "GPL-3.0"
+}
