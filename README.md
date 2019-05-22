@@ -19,7 +19,7 @@ When a component needs its markup, styles or JS tweaked, you know exactly where 
 
 `js/concat`  - This is where you'll include any JavaScript files that should be concatenated together and run globally on the site.
 
-`blocks` - This is where you will create new component folders, with any PHP, SASS and JS they require inside.
+`components` - This is where you will create new component folders, with any PHP, SASS and JS they require inside.
 
 The other folders such as `inc` and `template-parts` as well as the files in the root theme directory will be familiar to you if you've worked on WordPress themes before. They're all taken from [Underscores](http://underscores.me/), with a few minor tweaks made.
 
@@ -34,8 +34,9 @@ See the bottom of `Gulpfile.js` for the available tasks.
 
 ## Getting Started
 
-- Do a global search & replace to swap out `RT3_Think_Tank`, `rt3_think_tank`, `rt3-think-tank` and `rt3thinktank` with the strings appropriate for your theme.
-- Replace `screenshot.png` with the screenshot for your theme.
-- Update the header block of `/css/source/style.scss` with the info appropriate for your theme.
-- Update the BrowserSync URL in `Gulpfile.js` from `https://rt3thinktank.test` to your local development URL.
-- Build a great theme :)
+1. Rename the theme folder with your theme's slug.
+1. Do a global search & replace to swap out `RT3_Think_Tank`, `rt3_think_tank`, `rt3-think-tank` and `rt3thinktank` with the strings appropriate for your theme.
+1. Replace `screenshot.png` with the screenshot for your theme.
+1. Update the header block of `/css/source/style.scss` with the info appropriate for your theme.
+1. Update the BrowserSync URL in `Gulpfile.js` from `https://rt3thinktank.test` to your local development URL.
+1. Build a great theme :)

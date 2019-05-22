@@ -24,10 +24,10 @@ const wpPot = require( 'gulp-wp-pot' );
 const paths = {
 	'css': [ './*.css', '!*.min.css' ],
 	'php': [ './*.php', './**/*.php' ],
-	'sassMain': 'css/source/**/*.scss',
-	'sassBlocks': 'blocks/**/*.scss',
+	'mainSass': 'css/source/**/*.scss',
+	'componentSass': 'components/**/*.scss',
 	'concatScripts': 'js/concat/*.js',
-	'blocksScripts': 'blocks/**/*.js',
+	'componentScripts': 'components/**/*.js',
 	'scripts': [ 'js/*.js', '!js/*.min.js' ]
 };
 
@@ -51,7 +51,7 @@ function handleErrors() {
  * Delete style.css and style.min.css before styles are compiled.
  */
 gulp.task( 'clean:styles', () =>
-	del( [ 'style.css', 'style.min.css', 'css/compiled/main.css', 'css/compiled/blocks.css' ] )
+	del( [ 'style.css', 'style.min.css', 'css/compiled/main.css', 'css/compiled/components.css' ] )
 );
 
 /**
@@ -61,7 +61,7 @@ gulp.task( 'clean:styles', () =>
  * https://www.npmjs.com/package/gulp-sass
  */
 gulp.task( 'styles-main', [ 'clean:styles' ], () =>
-	gulp.src( paths.sassMain )
+	gulp.src( paths.mainSass )
 		.pipe( plumber( {'errorHandler': handleErrors} ) )
         .pipe( sass( {
             'errLogToConsole': true,
@@ -73,33 +73,33 @@ gulp.task( 'styles-main', [ 'clean:styles' ], () =>
 );
 
 /**
- * Compile blocks styles using LibSass.
+ * Compile components styles using LibSass.
  *
  * https://www.npmjs.com/package/gulp-concat
  * https://www.npmjs.com/package/gulp-sass
  */
-gulp.task( 'styles-blocks', [ 'clean:styles' ], () =>
-	gulp.src( paths.sassBlocks )
+gulp.task( 'styles-components', [ 'clean:styles' ], () =>
+	gulp.src( paths.componentSass )
 		.pipe( plumber( {'errorHandler': handleErrors} ) )
         .pipe( sass( {
             'errLogToConsole': true,
             'outputStyle': 'expanded'
         } ) )
-        .pipe( concat('blocks.css') ) // Create blocks.css.
+        .pipe( concat('components.css') ) // Create components.css.
         .pipe( gulp.dest( 'css/compiled' ) )
 		.pipe( browserSync.stream() )
 );
 
 /**
- * Combine main.css and blocks.css into a single style.css file.
+ * Combine main.css and components.css into a single style.css file.
  * Create a sourcemap and run through PostCSS.
  *
  * https://www.npmjs.com/package/gulp-concat
  * https://www.npmjs.com/package/gulp-postcss
  * https://www.npmjs.com/package/gulp-autoprefixer
  */
-gulp.task( 'styles-combine', [ 'styles-main', 'styles-blocks' ], () => {
-    return gulp.src( ['css/compiled/main.css', 'css/compiled/blocks.css'] )
+gulp.task( 'styles-combine', [ 'styles-main', 'styles-components' ], () => {
+    return gulp.src( ['css/compiled/main.css', 'css/compiled/components.css'] )
 		.pipe( plumber( {'errorHandler': handleErrors} ) )
 		.pipe( sourcemaps.init() )
         .pipe( postcss( [
@@ -145,28 +145,28 @@ gulp.task( 'js-global', () =>
 );
 
 /**
- * Compile blocks JS.
+ * Compile components JS.
  *
  * https://www.npmjs.com/package/gulp-concat
  */
-gulp.task( 'js-blocks', () =>
-    gulp.src( paths.blocksScripts )
+gulp.task( 'js-components', () =>
+    gulp.src( paths.componentScripts )
         .pipe( plumber( {'errorHandler': handleErrors} ) )
-        .pipe( concat( 'blocks.js' ) )
-        .pipe( gulp.dest( 'js/compiled/' ) ) // Save blocks.js.
+        .pipe( concat( 'components.js' ) )
+        .pipe( gulp.dest( 'js/compiled/' ) ) // Save components.js.
         .pipe( browserSync.stream() )
 );
 
 /**
- * Combine global.js and blocks.js into main.js file.
+ * Combine global.js and components.js into main.js file.
  * Generate a sourcemap and run through Babel.
  *
  * https://www.npmjs.com/package/gulp-concat
  * https://github.com/babel/gulp-babel
  * https://www.npmjs.com/package/gulp-sourcemaps
  */
-gulp.task( 'js-combine', ['js-global', 'js-blocks'], () =>
-	gulp.src( ['js/compiled/global.js', 'js/compiled/blocks.js'] )
+gulp.task( 'js-combine', ['js-global', 'js-components'], () =>
+	gulp.src( ['js/compiled/global.js', 'js/compiled/components.js'] )
         .pipe( plumber( {'errorHandler': handleErrors} ) )
 		.pipe( sourcemaps.init() )
 		.pipe( babel( { // Convert ES6+ to ES2015.
@@ -251,10 +251,10 @@ gulp.task( 'watch', () => {
 	} );
 
 	// Run tasks when files change.
-	gulp.watch( paths.sassMain, [ 'styles' ] );
-	gulp.watch( paths.sassBlocks, [ 'styles' ] );
+	gulp.watch( paths.mainSass, [ 'styles' ] );
+	gulp.watch( paths.componentSass, [ 'styles' ] );
 	gulp.watch( paths.concatScripts, [ 'scripts' ] );
-	gulp.watch( paths.blocksScripts, [ 'scripts' ] );
+	gulp.watch( paths.componentScripts, [ 'scripts' ] );
 	gulp.watch( paths.scripts, [ 'scripts' ] );
 	gulp.watch( paths.php, [ 'markup' ] );
 } );
