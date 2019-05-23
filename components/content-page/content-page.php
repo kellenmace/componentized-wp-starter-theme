@@ -13,14 +13,8 @@
 	<?php rt3_post_thumbnail(); ?>
 
 	<div class="entry-content">
-		<?php
-		the_content();
-
-		wp_link_pages( array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'rt3-think-tank' ),
-			'after'  => '</div>',
-		) );
-		?>
+		<?php the_content(); ?>
+		<?php rt3_render_component('page-links'); ?>
 	</div><!-- .entry-content -->
 
 	<?php if ( get_edit_post_link() ) : ?>

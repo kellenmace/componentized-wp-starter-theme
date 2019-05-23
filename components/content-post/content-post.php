@@ -42,10 +42,7 @@
 			get_the_title()
 		) );
 
-		wp_link_pages( array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'rt3-think-tank' ),
-			'after'  => '</div>',
-		) );
+		rt3_render_component('page-links');
 		?>
 	</div><!-- .entry-content -->
 

@@ -244,7 +244,7 @@ gulp.task( 'watch', () => {
 	browserSync( {
 		'open': false, // Don't open project in a new tab.
 		'injectChanges': true,  // Auto inject changes instead of full reload.
-		'proxy': 'https://rt3thinktank.test', // Visit https://rt3thinktank.test:3000 to use BrowserSync.
+		'proxy': 'https://rt3thinktank.test', // Visit https://localhost:3000 to use BrowserSync.
 		'watchOptions': {
 			'debounceDelay': 500 // Wait 500ms second before injecting.
 		}

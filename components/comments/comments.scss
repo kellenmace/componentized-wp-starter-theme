@@ -1,5 +1,11 @@
-.posts-navigation,
-.post-navigation {
+.comment-content a {
+	word-wrap: break-word;
+}
+.bypostauthor {
+	display: block;
+}
+
+.comment-navigation {
 
 	.site-main & {
 		margin: 0 0 1.5em;

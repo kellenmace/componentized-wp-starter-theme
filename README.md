@@ -53,14 +53,14 @@ The `example.scss` file bundled with the `example` component includes styles tha
 
 `components` - This is where you will create new component folders, with any PHP, SASS and JS they require inside. Make sure the name of the folder always matches the name of the php file inside (such as `/example/example.php`). That's necessary for the `rt3_render_component()` function to work.
 
-The other files and folders will likely be familiar to you if you've worked on WordPress themes before. Their code is taken from [Underscores](http://underscores.me/), with the calls to `get_header()`, `get_sidebar()`, `get_footer()` and `get_template_part()` replaced with the `rt3_render_component()` function.
+The other files and folders will likely be familiar to you if you've worked on WordPress themes before. Their code is based on [Underscores](http://underscores.me/).
 
 ## Build Tool
 Gulp is used as the build tool. It is configured to take all of the global JS as well as the component-specific JS, then concatenate and minify them into a single JS file that is served to the client. All JS is run through Babel, so you can write in ES6+ syntax.
 
 Likewise, Gulp also takes all of the global SASS and component-specific SASS, compiles, concatenates and minifies them into a single stylesheet that is served to the client. Styles are run through Autoprefixer and PostCSS to ensure browser compatibility.
 
-BrowserSync is supported. To use it, run `gulp watch` and visit your local site on port 3000, like this: `https://my-local-site.test:3000`.
+[BrowserSync](https://www.browsersync.io/) is supported. To use it, run `gulp watch` and visit <https://localhost:3000>.
 
 See the bottom of `Gulpfile.js` for the available tasks.
 
