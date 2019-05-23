@@ -1,10 +1,6 @@
 <?php
 /**
- * Template part for displaying page content in page.php
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package RT3_Think_Tank
+ * Component for displaying page content in page.php
  */
 
 ?>
@@ -14,7 +10,7 @@
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
-	<?php rt3_think_tank_post_thumbnail(); ?>
+	<?php rt3_post_thumbnail(); ?>
 
 	<div class="entry-content">
 		<?php

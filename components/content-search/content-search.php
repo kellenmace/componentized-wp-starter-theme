@@ -1,10 +1,6 @@
 <?php
 /**
- * Template part for displaying results in search pages
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package RT3_Think_Tank
+ * Component for displaying results in search pages.
  */
 
 ?>
@@ -16,20 +12,20 @@
 		<?php if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
 			<?php
-			rt3_think_tank_posted_on();
-			rt3_think_tank_posted_by();
+			rt3_posted_on();
+			rt3_posted_by();
 			?>
 		</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php rt3_think_tank_post_thumbnail(); ?>
+	<?php rt3_post_thumbnail(); ?>
 
 	<div class="entry-summary">
 		<?php the_excerpt(); ?>
 	</div><!-- .entry-summary -->
 
 	<footer class="entry-footer">
-		<?php rt3_think_tank_entry_footer(); ?>
+		<?php rt3_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

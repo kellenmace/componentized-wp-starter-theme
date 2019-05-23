@@ -1,10 +1,6 @@
 <?php
 /**
- * Template part for displaying posts
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package RT3_Think_Tank
+ * Component for displaying posts
  */
 
 ?>
@@ -22,14 +18,14 @@
 			?>
 			<div class="entry-meta">
 				<?php
-				rt3_think_tank_posted_on();
-				rt3_think_tank_posted_by();
+				rt3_posted_on();
+				rt3_posted_by();
 				?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php rt3_think_tank_post_thumbnail(); ?>
+	<?php rt3_post_thumbnail(); ?>
 
 	<div class="entry-content">
 		<?php
@@ -54,6 +50,6 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php rt3_think_tank_entry_footer(); ?>
+		<?php rt3_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

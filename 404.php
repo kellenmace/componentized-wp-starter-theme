@@ -3,11 +3,9 @@
  * The template for displaying 404 pages (not found)
  *
  * @link https://codex.wordpress.org/Creating_an_Error_404_Page
- *
- * @package RT3_Think_Tank
  */
 
-get_header();
+rt3_render_component('header');
 ?>
 
 	<div id="primary" class="content-area">
@@ -44,8 +42,8 @@ get_header();
 
 					<?php
 					/* translators: %1$s: smiley */
-					$rt3_think_tank_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'rt3-think-tank' ), convert_smilies( ':)' ) ) . '</p>';
-					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$rt3_think_tank_archive_content" );
+					$rt3_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'rt3-think-tank' ), convert_smilies( ':)' ) ) . '</p>';
+					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$rt3_archive_content" );
 
 					the_widget( 'WP_Widget_Tag_Cloud' );
 					?>
@@ -57,4 +55,4 @@ get_header();
 	</div><!-- #primary -->
 
 <?php
-get_footer();
+rt3_render_component('footer');

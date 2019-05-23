@@ -3,11 +3,9 @@
  * The template for displaying search results pages
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
- *
- * @package RT3_Think_Tank
  */
 
-get_header();
+rt3_render_component('header');
 ?>
 
 	<section id="primary" class="content-area">
@@ -31,10 +29,8 @@ get_header();
 
 				/**
 				 * Run the loop for the search to output the results.
-				 * If you want to overload this in a child theme then include a file
-				 * called content-search.php and that will be used instead.
 				 */
-				get_template_part( 'template-parts/content', 'search' );
+				rt3_render_component('content-search');
 
 			endwhile;
 
@@ -42,7 +38,7 @@ get_header();
 
 		else :
 
-			get_template_part( 'template-parts/content', 'none' );
+			rt3_render_component('content-none');
 
 		endif;
 		?>
@@ -51,5 +47,5 @@ get_header();
 	</section><!-- #primary -->
 
 <?php
-get_sidebar();
-get_footer();
+rt3_render_component('sidebar');
+rt3_render_component('footer');

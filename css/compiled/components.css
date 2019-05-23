@@ -1,3 +1,13 @@
-.example {
+.example-component {
+  background-color: #51d0de;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.example-component h1 {
+  color: #bf4aa8;
+}
+
+.example-component p {
   color: #404040;
 }

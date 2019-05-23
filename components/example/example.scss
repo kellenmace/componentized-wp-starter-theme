@@ -1,5 +1,15 @@
 @import "../../css/source/variables-site/variables-site";
 
-.example {
-  color: $color__text-main;
+.example-component {
+	background-color: #51d0de;
+	padding: 1rem;
+	cursor: pointer;
+
+	h1 {
+		color: #bf4aa8;
+	}
+
+	p {
+		color: $color__text-main;
+	}
 }

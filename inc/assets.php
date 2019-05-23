@@ -3,7 +3,7 @@
 /**
  * Enqueue styles.
  */
-function rt3_think_tank_enqueue_styles() {
+function rt3_enqueue_styles() {
 	$suffix = ( defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ) ? '' : '.min';
 	$path   = "/style{$suffix}.css";
 
@@ -14,12 +14,12 @@ function rt3_think_tank_enqueue_styles() {
 		filemtime( get_stylesheet_directory() . $path )
 	);
 }
-add_action( 'wp_enqueue_scripts', 'rt3_think_tank_enqueue_styles' );
+add_action( 'wp_enqueue_scripts', 'rt3_enqueue_styles' );
 
 /**
  * Enqueue scripts.
  */
-function rt3_think_tank_enqueue_scripts() {
+function rt3_enqueue_scripts() {
 	$suffix = ( defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ) ? '' : '.min';
 	$path   = "/js/main{$suffix}.js";
 
@@ -30,4 +30,4 @@ function rt3_think_tank_enqueue_scripts() {
 		filemtime( get_stylesheet_directory() . $path )
 	);
 }
-add_action( 'wp_enqueue_scripts', 'rt3_think_tank_enqueue_scripts' );
+add_action( 'wp_enqueue_scripts', 'rt3_enqueue_scripts' );

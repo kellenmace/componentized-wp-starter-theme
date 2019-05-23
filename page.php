@@ -8,11 +8,9 @@
  * different template.
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package RT3_Think_Tank
  */
 
-get_header();
+rt3_render_component('header');
 ?>
 
 	<div id="primary" class="content-area">
@@ -22,7 +20,7 @@ get_header();
 		while ( have_posts() ) :
 			the_post();
 
-			get_template_part( 'template-parts/content', 'page' );
+			rt3_render_component('content-page');
 
 		endwhile; // End of the loop.
 		?>
@@ -31,5 +29,5 @@ get_header();
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
-get_footer();
+rt3_render_component('sidebar');
+rt3_render_component('footer');

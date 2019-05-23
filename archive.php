@@ -3,11 +3,9 @@
  * The template for displaying archive pages
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package RT3_Think_Tank
  */
 
-get_header();
+rt3_render_component('header');
 ?>
 
 	<div id="primary" class="content-area">
@@ -28,11 +26,16 @@ get_header();
 				the_post();
 
 				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
+				 * Include the Post-Type-specific component for the content.
+				 * If you want to override this, then include a component called 
+				 * content-___/content-___.php (where ___ is the Post Type name)
+				 * and that will be used instead.
 				 */
-				get_template_part( 'template-parts/content', get_post_type() );
+				if ( rt3_does_component_exist( 'content-' . get_post_type() ) ) {
+					rt3_render_component( 'content-' . get_post_type() );
+				} else {
+					rt3_render_component('content-post');
+				}
 
 			endwhile;
 
@@ -40,7 +43,7 @@ get_header();
 
 		else :
 
-			get_template_part( 'template-parts/content', 'none' );
+			rt3_render_component('content-none');
 
 		endif;
 		?>
@@ -49,5 +52,5 @@ get_header();
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
-get_footer();
+rt3_render_component('sidebar');
+rt3_render_component('footer');
